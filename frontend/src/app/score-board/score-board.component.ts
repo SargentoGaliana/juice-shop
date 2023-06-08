@@ -214,6 +214,7 @@ export class ScoreBoardComponent implements OnInit, AfterViewInit {
   }
 
   trustDescriptionHtml (challenge: Challenge) {
+    challenge.setHeader('Content-Type', 'application/json');
     challenge.description = this.sanitizer.bypassSecurityTrustHtml(challenge.description as string)
   }
 
