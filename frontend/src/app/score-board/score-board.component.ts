@@ -213,9 +213,8 @@ export class ScoreBoardComponent implements OnInit, AfterViewInit {
     }
   }
 
-  trustDescriptionHtml (challenge: Challenge) {
-    challenge.setHeader('Content-Type', 'application/json');
-    challenge.description = this.sanitizer.bypassSecurityTrustHtml(challenge.description as string)
+  trustDescriptionHtml (challenge: Challenge) 
+    challenge.description = this.sanitizer.setHeader('Content-Type', 'application/json').bypassSecurityTrustHtml(challenge.description as string);
   }
 
   calculateCodingProgressPercentage () {
